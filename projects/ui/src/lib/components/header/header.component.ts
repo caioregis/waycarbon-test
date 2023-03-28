@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
       <div class="topbar">
         <span class="topbar-title container">{{title}}</span>
       </div>
-      <img src="../../../assets/header-image.jpg" alt="img-background-tree"> 
+      <img [src]="imgSrc" [alt]="imgAlt"> 
     </header>
   `,
   styleUrls: ['./header.component.scss'],
@@ -15,4 +15,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() title = '';
+  @Input() imgSrc = '';
+  @Input() imgAlt = '';
 }
