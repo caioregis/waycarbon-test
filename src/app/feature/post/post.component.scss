@@ -1,0 +1,17 @@
+:host {
+  .post-page {
+    &__title {
+      font-size: 2em;
+      font-weight: bold;
+      line-height: 47px;
+      margin: 0 .25em .25em 0;
+    }
+    &__subtitle {
+      font-size: 1.2em;
+      line-height: 28px;
+      color: var(--secondary-color);
+      font-weight: 400;
+      margin-bottom: .5em;
+    }
+  }
+}

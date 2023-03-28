@@ -1,4 +1,6 @@
-export default [
+import { User } from "src/app/models/user";
+
+export const users: User[] = [
     {
         id: 1,
         username: "João Figueiredo",
