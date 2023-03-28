@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostService } from './post.service';
 
 @Component({
   selector: 'app-post',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent {
+  post$ = this.postService.post$;
+
+  constructor(private postService: PostService) {}
 
 }

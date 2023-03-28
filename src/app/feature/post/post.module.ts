@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PostComponent } from './post.component';
 import { PostRoutingModule } from './post.routing.module';
+import { LoaderComponent } from '@ui';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PostRoutingModule } from './post.routing.module';
   ],
   imports: [
     CommonModule,
-    PostRoutingModule
+    PostRoutingModule,
+    LoaderComponent
   ],
   exports: [
     PostComponent
