@@ -1,0 +1,14 @@
+:host {
+  .toolbar {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: var(--primary-color);    
+    
+    &-title {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: var(--primary-color-contrast);
+    }
+  }
+}
