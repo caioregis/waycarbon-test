@@ -1,0 +1,30 @@
+:host {
+  header {
+    .topbar {
+      display: flex;
+      align-items: center;
+      height: 70px;
+      background-color: var(--primary-color);
+
+      &-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--primary-color-contrast);
+      }
+    }
+
+    img {
+      display: none;
+    }
+  }
+
+  @media (min-width: 860px) {
+    header img {
+      display: block;
+      width: 100%;
+      height: 493px;
+      object-fit: none;
+      object-position: center;
+    }
+  }
+}
