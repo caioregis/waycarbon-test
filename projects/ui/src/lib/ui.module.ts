@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HeaderComponent } from './header.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 

@@ -3,10 +3,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 @Component({
   selector: 'ui-header',
   template: `
-    <header class="toolbar" role="banner">
-      <div class="container">
-        <span class="toolbar-title">{{title}}</span>
+    <header role="banner">
+      <div class="topbar">
+        <span class="topbar-title container">{{title}}</span>
       </div>
+      <img src="../../../assets/header-image.jpg" alt="img-background-tree"> 
     </header>
   `,
   styleUrls: ['./header.component.scss'],
