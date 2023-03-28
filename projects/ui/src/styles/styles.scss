@@ -3,7 +3,10 @@
 $primary-color: #03A9F4;
 $primary-color-contrast: #ffffff;
 
+$secondary-color: #939393;
+
 :root {
   --primary-color: #{$primary-color};
   --primary-color-contrast: #{$primary-color-contrast};
+  --secondary-color: #{$secondary-color};
 }

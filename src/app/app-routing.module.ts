@@ -4,6 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./feature/post/post.module').then(m => m.PostModule)
+  },
+  {
+    path: '',
     redirectTo: '',
     pathMatch: 'full'
   }
