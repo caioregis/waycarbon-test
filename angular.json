@@ -33,7 +33,6 @@
                 "input":  "./node_modules/ui/src/assets",
                 "output": "assets"
               }
-             
             ],
             "styles": [
               "src/styles.scss",
