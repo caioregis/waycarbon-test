@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #03A9F4;
+  --primary-color-contrast: #ffffff;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url(./fonts/Roboto-Regular.ttf) format("truetype");
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 40px;
+  color: #000000;
+  background: #fff;
+}
+
+.container {
+  width: 100%;
+  padding: 0 10px;
+}
+
+@media (min-width: 860px) {
+  .container {
+    width: 850px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

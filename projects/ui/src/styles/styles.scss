@@ -1,0 +1,9 @@
+@use "../assets/theme.css";
+
+$primary-color: #03A9F4;
+$primary-color-contrast: #ffffff;
+
+:root {
+  --primary-color: #{$primary-color};
+  --primary-color-contrast: #{$primary-color-contrast};
+}
