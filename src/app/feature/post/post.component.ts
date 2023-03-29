@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { PostService } from './post.service';
 
 @Component({
@@ -8,7 +8,16 @@ import { PostService } from './post.service';
 })
 export class PostComponent {
   post$ = this.postService.post$;
+  @ViewChild('content') set content(content: ElementRef<HTMLElement> | null) {
+    if (content) {
+      content?.nativeElement.childNodes
+        .forEach(p => this.renderer2.setStyle(p, 'marginBottom', '20px'));
+    }
+  };
 
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private renderer2: Renderer2
+  ) {}
 
 }
