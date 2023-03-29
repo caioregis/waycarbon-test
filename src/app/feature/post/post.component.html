@@ -4,7 +4,8 @@
   <div class="post-page__author">
     <app-post-author></app-post-author>
   </div>
-  <div class="post-page__content"></div>
+  <div class="post-page__content" #content [innerHTML]="post.content | safeHtml">
+  </div>
   <div class="post-page__comments"></div>
 </div>
 
