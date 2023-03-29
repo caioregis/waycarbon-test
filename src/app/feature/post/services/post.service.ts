@@ -1,9 +1,9 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { rawPost } from 'data/rawPost';
 import { BehaviorSubject, delay, map, of, switchMap, takeWhile } from 'rxjs';
-import { User } from '../../models/user';
-import { Post } from '../../models/post';
-import { UserService } from '../user/user.service';
+import { User } from '../../../models/user';
+import { Post } from '../../../models/post';
+import { UserService } from '../../user/user.service';
 
 @Injectable({
   providedIn: 'root',

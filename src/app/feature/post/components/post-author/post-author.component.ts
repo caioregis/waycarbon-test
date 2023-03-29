@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { map } from 'rxjs';
-import { PostService } from '../../post.service';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-author',
