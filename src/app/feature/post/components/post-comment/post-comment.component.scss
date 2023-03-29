@@ -1,6 +1,7 @@
 :host {
   .comment {
     display: flex;
+    margin-top: 20px;
     
     &__line {
       width: 3px;
@@ -13,7 +14,7 @@
       
       &__username {
         font-size: .8em;
-        color: var(--primary-color);
+        color: var(--primary-color-dark);
       }
       &__content {
         font-size: .9em;
@@ -24,8 +25,12 @@
         flex-flow: row-reverse; 
         
         button {
-          margin: 10px 0 0 10px;
+          margin-left: 10px;
         }
+      }
+      &__children {
+        list-style: none;
+        padding-left: 10px;
       }
     }
   }

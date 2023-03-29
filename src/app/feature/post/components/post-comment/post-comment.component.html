@@ -10,6 +10,11 @@
         <button class="primary">Responder</button>
         <button class="secondary">Curtir</button>
       </div>
+      <ul class="comment__body__children">
+        <li *ngFor="let child of comment.comments">
+          <app-post-comment [comment]="child"></app-post-comment>
+        </li>
+      </ul>
     </div>
   </div>
 </ng-container>
