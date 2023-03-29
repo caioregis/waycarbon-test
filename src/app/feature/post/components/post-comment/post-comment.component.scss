@@ -1,0 +1,32 @@
+:host {
+  .comment {
+    display: flex;
+    
+    &__line {
+      width: 3px;
+      border: 0;
+      background: var(--tertiary-color);
+    }
+    &__body {
+      margin-left: 20px;
+      flex: 1;
+      
+      &__username {
+        font-size: .8em;
+        color: var(--primary-color);
+      }
+      &__content {
+        font-size: .9em;
+        color: var(--black-color);
+      }
+      &__actions {
+        display: flex;
+        flex-flow: row-reverse; 
+        
+        button {
+          margin: 10px 0 0 10px;
+        }
+      }
+    }
+  }
+}

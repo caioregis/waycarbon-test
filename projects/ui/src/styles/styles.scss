@@ -5,6 +5,8 @@ $primary-color-contrast: #ffffff;
 
 $secondary-color: #939393;
 
+$tertiary-color: #FF9B52;
+
 $black-color: #000000;
 $white-color: #ffffff;
 
@@ -12,5 +14,7 @@ $white-color: #ffffff;
   --primary-color: #{$primary-color};
   --primary-color-contrast: #{$primary-color-contrast};
   --secondary-color: #{$secondary-color};
+  --tertiary-color: #{$tertiary-color};
   --black-color: #{$black-color};
+  --white-color: #{$white-color};
 }

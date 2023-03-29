@@ -1,6 +1,12 @@
 <ng-container *ngIf="comments$ | async as comments">
   <div class="comments">
     <h3 class="comments__title">Comentários</h3>
-    <div class="comments__list"></div>
+    <div class="comments__list">
+      <app-post-comment
+        *ngFor="let comment of comments"
+        [comment]="comment" 
+        class="comments__list__comment">
+      </app-post-comment>
+    </div>
   </div>
 </ng-container>
