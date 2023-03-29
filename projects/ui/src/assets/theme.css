@@ -35,3 +35,26 @@ body {
 img {
   width: 100%;
 }
+
+button {
+  padding: 8px;
+  border-radius: 6px;
+  border: 0;
+  outline: none;
+  box-shadow: 1px 1px 1px #eee;
+}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+
+button.primary {
+  background: var(--primary-color);
+  color: var(--primary-color-contrast);
+}
+
+button.secondary {
+  background: var(--secondary-color);
+  color: var(--white-color);
+}

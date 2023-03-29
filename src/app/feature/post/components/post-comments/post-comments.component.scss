@@ -1,0 +1,17 @@
+:host {
+  .comments {
+    &__title {
+      font-size: 1.5em;
+      font-weight: bold;
+      line-height: 35px;
+      color: var(--black-color);
+      margin-bottom: 1.5em;
+    }
+    &__list {
+      app-post-comment:not(:last-child) {
+        display: block;
+        margin-bottom: 1.5em;
+      }
+    }
+  }
+}

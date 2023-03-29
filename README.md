@@ -39,10 +39,10 @@ Esta seção define os requisitos mínimos para que sua prova seja considerada. 
 
 # Entrega
 Confira esta lista de tarefas para te ajudar a julgar se a prova está pronta para a entrega:
-- [ ] Replicação do estilo definido no protótipo visual
-- [ ] Botões de ação de responder, compartilhar e reportar comentário
+- [x] Replicação do estilo definido no protótipo visual
+- [x] Botões de ação de responder, compartilhar e reportar comentário
 - [ ] O botão de responder comentário abre ação de resposta e o comentário salvo é corretamente adicionado
 - [ ] Clicar no nome de um usuário abre modal com suas informações
-- [ ] Workspace Angular multiprojetos com, no mínimo, aplicação e biblioteca
-- [ ] A biblioteca possui ao menos 2 componentes, todos utilizados na aplicação
+- [x] Workspace Angular multiprojetos com, no mínimo, aplicação e biblioteca
+- [x] A biblioteca possui ao menos 2 componentes, todos utilizados na aplicação
 - [ ] Os conjuntos de teste passam
