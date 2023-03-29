@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { LoaderComponent, AvatarCardInfoComponent } from '@ui';
+import { LoaderComponent, AvatarCardInfoComponent, SafeHtmlPipe } from '@ui';
 import { PostComponent } from './post.component';
 import { PostRoutingModule } from './post-routing.module';
 import { PostAuthorComponent } from './components/post-author/post-author.component';
@@ -16,7 +16,8 @@ import { PostAuthorComponent } from './components/post-author/post-author.compon
     CommonModule,
     PostRoutingModule,
     LoaderComponent,
-    AvatarCardInfoComponent
+    AvatarCardInfoComponent,
+    SafeHtmlPipe
   ],
   exports: [
     PostComponent
