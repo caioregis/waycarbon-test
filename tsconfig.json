@@ -25,6 +25,9 @@
       ],
       "@angular/*": [
         "./node_modules/@angular/*"
+      ],
+      "data/*": [
+        "src/data/*"
       ]
     },
     "lib": [
