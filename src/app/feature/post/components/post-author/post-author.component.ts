@@ -5,7 +5,6 @@ import { PostService } from '../../services/post.service';
 @Component({
   selector: 'app-post-author',
   templateUrl: './post-author.component.html',
-  styleUrls: ['./post-author.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostAuthorComponent {
