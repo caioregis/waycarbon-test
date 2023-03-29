@@ -1,10 +1,12 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { BehaviorSubject, delay, of, takeWhile } from 'rxjs';
-import { rawPost } from 'src/data/rawPost';
-import { Post } from 'src/app/models/post';
+import { rawPost } from 'data/rawPost';
+import { BehaviorSubject, delay, map, of, switchMap, takeWhile } from 'rxjs';
+import { User } from '../../models/user';
+import { Post } from '../../models/post';
+import { UserService } from '../user/user.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostService implements OnDestroy {
   private post = new BehaviorSubject<Post | null>(null);
@@ -12,7 +14,7 @@ export class PostService implements OnDestroy {
 
   private listening = true;
 
-  constructor() {
+  constructor(private userService: UserService) {
     this.loadInitialData();
   }
 
@@ -24,8 +26,17 @@ export class PostService implements OnDestroy {
     of(rawPost)
       .pipe(
         delay(2000),
+        switchMap(post => this.userService.getUserInfo(rawPost.id)
+          .pipe(
+            map((user: User) => this.mapperAuthorPost(post, user)),
+          )
+        ),
         takeWhile(() => this.listening)
       )
-      .subscribe(post => this.post.next(post));
+      .subscribe((post) => this.post.next(post));
+  }
+
+  private mapperAuthorPost(post: Post, user: User): Post {
+    return { ...post, author: user };
   }
 }

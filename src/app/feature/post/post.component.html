@@ -1,7 +1,9 @@
 <div class="post-page" *ngIf="post$ | async as post; else loading">
   <h1 class="post-page__title">{{post.title}}</h1>
   <h2 class="post-page__subtitle">{{post.subtitle}}</h2>
-  <div class="post-page__author"></div>
+  <div class="post-page__author">
+    <app-post-author></app-post-author>
+  </div>
   <div class="post-page__content"></div>
   <div class="post-page__comments"></div>
 </div>
