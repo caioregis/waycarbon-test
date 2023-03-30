@@ -2,7 +2,7 @@
   <div class="comment">
     <div class="comment__line"></div>
     <div class="comment__body">
-      <div class="comment__body__username">
+      <div class="comment__body__username" (click)="showModalUserInfo(comment?.author?.id!)">
         {{comment.author.username || ''}} - {{comment.timestamp | date: 'd MMM y, \'às\' h\'h\'mm'}}
       </div>
       <div class="comment__body__content">{{comment.content || ''}}</div>

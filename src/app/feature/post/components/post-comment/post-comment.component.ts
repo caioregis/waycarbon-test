@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { UserService } from 'src/app/feature/user/user.service';
 import { PostComment } from 'src/app/models/post-comment';
 import { PostService } from '../../services/post.service';
 
@@ -15,7 +16,10 @@ export class PostCommentComponent {
 
   private showAnswerInput: number[] = [];
 
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private userService: UserService,
+  ) {}
 
   showAnswer(id: number) {
     return this.showAnswerInput.includes(id);
@@ -37,5 +41,9 @@ export class PostCommentComponent {
   cancel(id: number) {
     this.showAnswerInput = this.showAnswerInput
       .filter(commentId => commentId !== id);
+  }
+
+  showModalUserInfo(id: number) {
+    this.userService.showModalUserInfo(id);
   }
 }
