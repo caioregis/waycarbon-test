@@ -46,18 +46,25 @@ export class UserService implements OnDestroy {
       );
   }
 
-  private getUserById(list: User[], id: number) {
-    return list?.find(u => u.id === id) ?? {} as User
+  private getUserById(list: User[], id: number): User {
+    const user =  list?.find(u => u.id === id) ?? {} as User
+    const friendsUser = list.filter(u => u.friendIds.includes(user.id))
+    return {
+      ...user,
+      friendsUser
+    }
   }
 
   showModalUserInfo(id: number) {
-    this.getUserInfo(id)
-      .subscribe(user => {
-        this.currentUser.next(user);
-        this.modalService.openModal(PostUserModalComponent, {
-          title: user.username,
+    if (id) {
+      this.getUserInfo(id)
+        .subscribe(user => {
+          this.currentUser.next(user);
+          this.modalService.openModal(PostUserModalComponent, {
+            title: `Dados do Usuário - ${user.username}`,
+          });
         });
-      });
+    }
   }
 
 }

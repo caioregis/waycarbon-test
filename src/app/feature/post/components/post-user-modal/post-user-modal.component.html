@@ -1,3 +1,28 @@
-<div class="user" *ngIf="user$ | async as user">
+<div class="user-modal" *ngIf="user$ | async as user">
+  <div class="user-modal__info">
+    <img class="user-modal__avatar" src="{{'assets/avatar' + user.id  + '.jpg'}}" />
+    <div>
+      <div class="user-modal__info__username">
+        <label>Nome:</label>{{user.username}}
+      </div>
+      <div class="user-modal__info__memberSince">
+        <label>Membro desde:</label>{{user.memberSince | date: 'd \'de\' MMM, y'}}
+      </div>
+      <div class="user-modal__info__friends" *ngIf="user.friendsUser?.length">
+        <label>Amigos:</label><span *ngFor="let friend of user.friendsUser">{{friend.username}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="user-modal__posts">
+    <label>Postagens ({{user.posts?.length || 0}})</label>
+    <div class="overflow-scroll">
+      <ul class="user-modal__posts__post" *ngFor="let post of user.posts; let i = index;">
+        <li class="user-modal__posts__post__title">({{i+1}}) {{post.title}}</li>
+        <ul>
+          <li class="user-modal__posts__post__content" [innerHTML]="post.content! | safeHtml"></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
 </div>
 

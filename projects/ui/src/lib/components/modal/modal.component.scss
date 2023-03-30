@@ -19,7 +19,8 @@
 
   @media (min-width: 860px) {
     width:auto;
-    min-width: calc(100vw - 50vw);
+    min-width: calc(50vw);
+    max-width: calc(50vw);
   }
   
   &__title {
