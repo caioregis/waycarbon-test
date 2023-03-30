@@ -1,4 +1,4 @@
-<ng-container *ngIf="comment">
+<ng-container *ngFor="let comment of comments">
   <div class="comment">
     <div class="comment__line"></div>
     <div class="comment__body">
@@ -9,30 +9,29 @@
       <div class="comment__body__actions">
         <ng-container 
           *ngTemplateOutlet="showAnswerInput ? answerOpened : answerClosed;
-          context: { id: comment.id }">
+          context: { $implicit: comment }">
         </ng-container>
       </div>
-      <ul class="comment__body__children">
-        <li   
-          *ngFor="let child of comment.comments; 
-          trackBy: trackByComment">
-          <app-post-comment 
-            [comment]="child"
-            (answer)="confirm($event)">
-          </app-post-comment>
+      <ul *ngIf="comment.comments?.length" class="comment__body__children">
+        <li>
+          <app-post-comment [comments]="comment.comments!"></app-post-comment>
         </li>
       </ul>
     </div>
   </div>
 </ng-container>
 
-<ng-template #answerClosed>
-  <button class="secondary">Curtir</button>
+<ng-template #answerClosed let-comment>
+  <button class="secondary" (click)="like(comment.id)" [ngClass]="{'liked': !!comment.likes}">
+    Curtir {{comment.likes || ''}}
+  </button>
   <button class="primary" (click)="answerToggle()">Responder</button>
 </ng-template>
 
-<ng-template #answerOpened let-respondTo="id">
+<ng-template #answerOpened let-comment>
   <textarea rows="3" #textAreaInput></textarea>
   <button class="secondary" (click)="cancel()">Cancelar</button>
-  <button class="primary" (click)="confirm({ respondTo, text: textAreaInput.value })">Publicar</button>
+  <button class="primary" (click)="confirm({ respondTo: comment.id, text: textAreaInput.value })">
+    Publicar
+  </button>
 </ng-template>

@@ -1,7 +1,7 @@
 :host {
   .comment {
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     
     &__line {
       width: 3px;
@@ -28,6 +28,10 @@
         button:not(:last-child) {
           margin-right: 10px;
         }
+        button.liked {
+          background-color: var(--tertiary-color);
+          color: var(--black-color);
+        }
         textarea {
           width: 100%;
           margin-bottom: 10px;
@@ -36,6 +40,10 @@
       &__children {
         list-style: none;
         padding-left: 10px;
+        li app-post-comment {
+          display: block;
+          margin-top: -10px;
+        }
       }
     }
   }

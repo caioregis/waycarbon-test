@@ -56,6 +56,12 @@ export class PostService implements OnDestroy {
     }
   }
 
+  like(id: number) {
+    let comment = this.findInTree(this.post.getValue()?.comments!, id)
+    if (comment)
+      comment.likes = !comment.likes ? 1 : 0
+  }
+
   private mapperPost(post: Post, author: User): Post {
     return {
       ...post,
