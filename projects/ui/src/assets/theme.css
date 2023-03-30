@@ -36,6 +36,10 @@ img {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 button {
   padding: 8px;
   border-radius: 6px;
@@ -57,4 +61,10 @@ button.primary {
 button.secondary {
   background: var(--secondary-color);
   color: var(--white-color);
+}
+
+.text-crop {
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow:ellipsis; 
 }
