@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PostComment } from 'src/app/models/post-comment';
+import { PostService } from '../../services/post.service';
 
 type NewComment = {respondTo: number, text: string};
 
@@ -10,25 +11,31 @@ type NewComment = {respondTo: number, text: string};
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostCommentComponent {
-  @Input() comment: PostComment | null = null;
-  @Output() answer = new EventEmitter<NewComment>();
+  @Input() comments: PostComment[] = [];
 
-  showAnswerInput = false;
+  private showAnswerInput: number[] = [];
 
-  answerToggle() {
-    this.showAnswerInput = true;
+  constructor(private postService: PostService) {}
+
+  showAnswer(id: number) {
+    return this.showAnswerInput.includes(id);
+  }
+
+  answerToggle(id: number) {
+    this.showAnswerInput.push(id);
   }
 
   confirm({respondTo, text}: NewComment) {
-    this.answer.emit({ respondTo, text });
-    this.cancel();
+    this.postService.saveComment(respondTo, text);
+    this.cancel(respondTo);
   }
 
-  cancel() {
-    this.showAnswerInput = false;
+  like(id: number) {
+    this.postService.like(id);
   }
 
-  trackByComment(index: number, comment: PostComment) {
-    return comment.id;
+  cancel(id: number) {
+    this.showAnswerInput = this.showAnswerInput
+      .filter(commentId => commentId !== id);
   }
 }

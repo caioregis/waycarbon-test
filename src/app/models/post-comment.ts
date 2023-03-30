@@ -9,4 +9,5 @@ export interface PostComment {
   timestamp: string;
   content: string;
   comments?: PostComment[]
+  likes?: number;
 }
