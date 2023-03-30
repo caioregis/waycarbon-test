@@ -6,13 +6,15 @@ import { PostComponent } from './post.component';
 import { PostRoutingModule } from './post-routing.module';
 import { PostAuthorComponent } from './components/post-author/post-author.component';
 import { PostCommentComponent } from './components/post-comment/post-comment.component';
+import { PostUserModalComponent } from './components/post-user-modal/post-user-modal.component';
 
 
 @NgModule({
   declarations: [
     PostComponent,
     PostAuthorComponent,
-    PostCommentComponent
+    PostCommentComponent,
+    PostUserModalComponent
   ],
   imports: [
     CommonModule,
