@@ -6,9 +6,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <header role="banner">
       <div class="topbar">
-        <span class="topbar-title container">{{title}}</span>
+        <span class="topbar-title container" data-testid="header-title">{{title}}</span>
       </div>
-      <img [src]="imgSrc" [alt]="imgAlt"> 
+      <img [src]="imgSrc" [alt]="imgAlt" data-testid="header-img"> 
     </header>
   `,
   styleUrls: ['./header.component.scss'],
