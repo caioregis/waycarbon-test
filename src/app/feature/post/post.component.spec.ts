@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LoaderComponent } from '@ui';
 
 import { PostComponent } from './post.component';
 
@@ -8,7 +9,8 @@ describe('PostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostComponent ]
+      declarations: [ PostComponent ],
+      imports: [LoaderComponent]
     })
     .compileComponents();
 
