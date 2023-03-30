@@ -12,4 +12,7 @@ export class PostCommentsComponent {
 
   constructor(private postService: PostService) {}
 
+  answer({respondTo, text}: any) {
+    this.postService.saveComment(respondTo, text);
+  }
 }

@@ -3,18 +3,36 @@
     <div class="comment__line"></div>
     <div class="comment__body">
       <div class="comment__body__username">
-        {{comment.author.username}} - {{comment.timestamp | date}}
+        {{comment.author.username || ''}} - {{comment.timestamp | date: 'd MMM y, \'às\' h\'h\'mm'}}
       </div>
-      <div class="comment__body__content">{{comment.content}}</div>
+      <div class="comment__body__content">{{comment.content || ''}}</div>
       <div class="comment__body__actions">
-        <button class="primary">Responder</button>
-        <button class="secondary">Curtir</button>
+        <ng-container 
+          *ngTemplateOutlet="showAnswerInput ? answerOpened : answerClosed;
+          context: { id: comment.id }">
+        </ng-container>
       </div>
       <ul class="comment__body__children">
-        <li *ngFor="let child of comment.comments">
-          <app-post-comment [comment]="child"></app-post-comment>
+        <li   
+          *ngFor="let child of comment.comments; 
+          trackBy: trackByComment">
+          <app-post-comment 
+            [comment]="child"
+            (answer)="confirm($event)">
+          </app-post-comment>
         </li>
       </ul>
     </div>
   </div>
 </ng-container>
+
+<ng-template #answerClosed>
+  <button class="secondary">Curtir</button>
+  <button class="primary" (click)="answerToggle()">Responder</button>
+</ng-template>
+
+<ng-template #answerOpened let-respondTo="id">
+  <textarea rows="3" #textAreaInput></textarea>
+  <button class="secondary" (click)="cancel()">Cancelar</button>
+  <button class="primary" (click)="confirm({ respondTo, text: textAreaInput.value })">Publicar</button>
+</ng-template>

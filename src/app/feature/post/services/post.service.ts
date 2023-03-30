@@ -37,6 +37,25 @@ export class PostService implements OnDestroy {
       .subscribe((post) => this.post.next(post));
   }
 
+  saveComment(respondTo: number, text: string) {
+    let comment = this.findInTree(this.post.getValue()?.comments!, respondTo)
+
+    if (comment) {
+      const newComment = {
+        id: Math.ceil(Math.random() * 10000), 
+        respondsTo: { id: respondTo }, 
+        author: { username: 'TEST' }, 
+        timestamp: new Date().toDateString(), 
+        content: text 
+      } as PostComment;
+
+      comment.comments = [
+        ...(comment.comments ? comment.comments : []),
+        { ...newComment }
+      ];
+    }
+  }
+
   private mapperPost(post: Post, author: User): Post {
     return {
       ...post,
@@ -46,11 +65,26 @@ export class PostService implements OnDestroy {
   }
 
   private mapperCommentsPost(comments: PostComment[]): PostComment[] {
-    const arrayToTree = (arr: PostComment[], parentId: number | undefined = undefined): PostComment[] =>
-      arr
-        .filter((comment) => comment.respondsTo?.id === parentId)
-        .map((child) => ({ ...child, comments: arrayToTree(arr, child.id) }));
+    const arrayToTree = (list: PostComment[], parentId: number | undefined = undefined): PostComment[] =>
+    list
+      .filter((comment) => comment.respondsTo?.id === parentId)
+      .map((child) => ({ ...child, comments: arrayToTree(list, child.id) }));
 
     return arrayToTree(comments!);
+  }
+
+  private findInTree = (list: PostComment[], id: number): PostComment | null => {
+    for (const comment of list) {
+      if (comment.id === id) {
+        return comment;
+      }
+      if (comment.comments?.length) {
+        const result = this.findInTree(comment.comments, id);
+        if (result) {
+          return result;
+        }
+      }
+    }
+    return null;
   }
 }
