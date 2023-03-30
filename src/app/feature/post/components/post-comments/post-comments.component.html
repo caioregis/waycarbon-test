@@ -4,7 +4,8 @@
     <div class="comments__list">
       <app-post-comment
         *ngFor="let comment of comments"
-        [comment]="comment" 
+        [comment]="comment"
+        (answer)="answer($event)"
         class="comments__list__comment">
       </app-post-comment>
     </div>
