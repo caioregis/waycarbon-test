@@ -8,7 +8,7 @@
       <div class="comment__body__content">{{comment.content || ''}}</div>
       <div class="comment__body__actions">
         <ng-container 
-          *ngTemplateOutlet="showAnswerInput ? answerOpened : answerClosed;
+          *ngTemplateOutlet="showAnswer(comment.id) ? answerOpened : answerClosed;
           context: { $implicit: comment }">
         </ng-container>
       </div>
@@ -25,12 +25,12 @@
   <button class="secondary" (click)="like(comment.id)" [ngClass]="{'liked': !!comment.likes}">
     Curtir {{comment.likes || ''}}
   </button>
-  <button class="primary" (click)="answerToggle()">Responder</button>
+  <button class="primary" (click)="answerToggle(comment.id)">Responder</button>
 </ng-template>
 
 <ng-template #answerOpened let-comment>
   <textarea rows="3" #textAreaInput></textarea>
-  <button class="secondary" (click)="cancel()">Cancelar</button>
+  <button class="secondary" (click)="cancel(comment.id)">Cancelar</button>
   <button class="primary" (click)="confirm({ respondTo: comment.id, text: textAreaInput.value })">
     Publicar
   </button>

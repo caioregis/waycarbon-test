@@ -13,24 +13,29 @@ type NewComment = {respondTo: number, text: string};
 export class PostCommentComponent {
   @Input() comments: PostComment[] = [];
 
-  showAnswerInput = false;
+  private showAnswerInput: number[] = [];
 
   constructor(private postService: PostService) {}
 
-  answerToggle() {
-    this.showAnswerInput = true;
+  showAnswer(id: number) {
+    return this.showAnswerInput.includes(id);
+  }
+
+  answerToggle(id: number) {
+    this.showAnswerInput.push(id);
   }
 
   confirm({respondTo, text}: NewComment) {
     this.postService.saveComment(respondTo, text);
-    this.cancel();
+    this.cancel(respondTo);
   }
 
-  like(id: any) {
+  like(id: number) {
     this.postService.like(id);
   }
 
-  cancel() {
-    this.showAnswerInput = false;
+  cancel(id: number) {
+    this.showAnswerInput = this.showAnswerInput
+      .filter(commentId => commentId !== id);
   }
 }
