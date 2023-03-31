@@ -19,6 +19,10 @@ export class PostService implements OnDestroy {
     this.loadInitialData();
   }
 
+  get postValue() {
+    return this.post.getValue();
+  }
+
   ngOnDestroy(): void {
     this.listening = false;
   }
@@ -38,7 +42,7 @@ export class PostService implements OnDestroy {
   }
 
   saveComment(respondTo: number, text: string) {
-    let comment = this.findInTree(this.post.getValue()?.comments!, respondTo)
+    let comment = this.findInTree(this.postValue?.comments!, respondTo)
 
     if (comment) {
       const newComment = {
@@ -57,13 +61,13 @@ export class PostService implements OnDestroy {
   }
 
   like(id: number) {
-    let comment = this.findInTree(this.post.getValue()?.comments!, id)
+    let comment = this.findInTree(this.postValue?.comments!, id)
     if (comment)
       comment.likes = !comment.likes ? 1 : 0
   }
 
   answerComment(id: number) {
-    let comment = this.findInTree(this.post.getValue()?.comments!, id)
+    let comment = this.findInTree(this.postValue?.comments!, id)
     if (comment)
       comment.isTyping = !comment.isTyping;
   }
