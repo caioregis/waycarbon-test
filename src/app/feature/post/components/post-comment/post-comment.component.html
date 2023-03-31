@@ -8,7 +8,7 @@
       <div class="comment__body__content">{{comment.content || ''}}</div>
       <div class="comment__body__actions">
         <ng-container 
-          *ngTemplateOutlet="showAnswer(comment.id) ? answerOpened : answerClosed;
+          *ngTemplateOutlet="comment.isTyping ? answerOpened : answerClosed;
           context: { $implicit: comment }">
         </ng-container>
       </div>

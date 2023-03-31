@@ -14,19 +14,13 @@ type NewComment = {respondTo: number, text: string};
 export class PostCommentComponent {
   @Input() comments: PostComment[] = [];
 
-  private showAnswerInput: number[] = [];
-
   constructor(
     private postService: PostService,
     private userService: UserService,
   ) {}
 
-  showAnswer(id: number) {
-    return this.showAnswerInput.includes(id);
-  }
-
   answerToggle(id: number) {
-    this.showAnswerInput.push(id);
+    this.postService.answerComment(id);
   }
 
   confirm({respondTo, text}: NewComment) {
@@ -39,8 +33,7 @@ export class PostCommentComponent {
   }
 
   cancel(id: number) {
-    this.showAnswerInput = this.showAnswerInput
-      .filter(commentId => commentId !== id);
+    this.postService.answerComment(id);
   }
 
   showModalUserInfo(id: number) {

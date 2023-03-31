@@ -10,4 +10,5 @@ export interface PostComment {
   content: string;
   comments?: PostComment[]
   likes?: number;
+  isTyping?: boolean;
 }
