@@ -1,5 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { postExpected } from 'data/mock-post-tree';
+import { postTreeFormat } from 'data/mock-post-tree';
 import { rawPost } from 'data/rawPost';
 import { users } from 'data/users';
 import { of } from 'rxjs';
@@ -52,7 +52,7 @@ describe('PostService', () => {
     
 
     expect(spyGetUserInfo).toHaveBeenCalledWith(post.id);
-    expect(formattedPost).toEqual(postExpected);
+    expect(formattedPost).toEqual(postTreeFormat);
   }));
 
   it('should saveComment', fakeAsync(() => {

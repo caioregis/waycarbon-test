@@ -1,6 +1,6 @@
 import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { postExpected } from 'data/mock-post-tree';
+import { postTreeFormat } from 'data/mock-post-tree';
 import { UserService } from 'src/app/feature/user/user.service';
 import { click } from 'testing/click.helper';
 import { runOnPushChangeDetection } from 'testing/on-push-change-detection.helper';
@@ -31,7 +31,7 @@ describe('PostCommentComponent', () => {
     postService = TestBed.inject(PostService);
     fixture = TestBed.createComponent(PostCommentComponent);
     component = fixture.componentInstance;
-    component.comments = [...postExpected.comments]; 
+    component.comments = [...postTreeFormat.comments]; 
     fixture.detectChanges();
   });
 
@@ -44,7 +44,7 @@ describe('PostCommentComponent', () => {
 
     click(fixture, 'username-show-modal');
 
-    expect(spy).toHaveBeenCalledWith(postExpected.comments[0].author.id);
+    expect(spy).toHaveBeenCalledWith(postTreeFormat.comments[0].author.id);
   });
 
   it('should username', () => {
@@ -56,7 +56,7 @@ describe('PostCommentComponent', () => {
   it('should content', () => {
     const content = fixture.debugElement.query(By.css('[data-testid="content"]'));
 
-    expect(content.nativeElement.textContent).toEqual(postExpected.comments[0].content);
+    expect(content.nativeElement.textContent).toEqual(postTreeFormat.comments[0].content);
   });
 
   it('should like', () => {
@@ -64,7 +64,7 @@ describe('PostCommentComponent', () => {
 
     click(fixture, 'like');
 
-    expect(spy).toHaveBeenCalledWith(postExpected.comments[0].id);
+    expect(spy).toHaveBeenCalledWith(postTreeFormat.comments[0].id);
   });
 
   it('should answerToggle', () => {
@@ -72,7 +72,7 @@ describe('PostCommentComponent', () => {
 
     click(fixture, 'answerToggle');
 
-    expect(spy).toHaveBeenCalledWith(postExpected.comments[0].id);
+    expect(spy).toHaveBeenCalledWith(postTreeFormat.comments[0].id);
   });
 
   describe('#cancel|confirm actions', () => {
@@ -89,7 +89,7 @@ describe('PostCommentComponent', () => {
 
       click(fixture, 'cancel');
 
-      expect(spy).toHaveBeenCalledWith(postExpected.comments[0].id);
+      expect(spy).toHaveBeenCalledWith(postTreeFormat.comments[0].id);
     });
       
     it('should confirm', () => {
@@ -98,8 +98,8 @@ describe('PostCommentComponent', () => {
 
       click(fixture, 'confirm');
 
-      expect(spy).toHaveBeenCalledWith(postExpected.comments[0].id, ''); 
-      expect(spycancel).toHaveBeenCalledWith(postExpected.comments[0].id);
+      expect(spy).toHaveBeenCalledWith(postTreeFormat.comments[0].id, ''); 
+      expect(spycancel).toHaveBeenCalledWith(postTreeFormat.comments[0].id);
     });
   });
  
