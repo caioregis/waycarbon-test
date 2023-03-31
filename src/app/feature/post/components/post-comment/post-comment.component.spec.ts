@@ -13,7 +13,7 @@ const userServiceStub = {
   showModalUserInfo: () => {}
 }
 
-fdescribe('PostCommentComponent', () => {
+describe('PostCommentComponent', () => {
   let component: PostCommentComponent;
   let fixture: ComponentFixture<PostCommentComponent>;
   let userService: UserService;
