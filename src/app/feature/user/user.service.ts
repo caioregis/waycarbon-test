@@ -55,7 +55,7 @@ export class UserService implements OnDestroy {
     }
   }
 
-  showModalUserInfo(id: number) {
+  showModalUserInfo(id: number): void {
     if (id) {
       this.getUserInfo(id)
         .subscribe(user => {

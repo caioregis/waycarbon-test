@@ -1,7 +1,7 @@
-<ng-container *ngIf="author$ | async as author">
+<ng-container *ngIf="post$ | async as post">
   <ui-avatar-card-info>
-    <img src="{{'assets/avatar' + author.id  + '.jpg'}}">
-    <div class="title">{{author.username}}</div>
-    <div class="subtitle">{{timestamp$ | async | date: 'd \'de\' MMM, y'}}</div>
+    <img data-testid="avatar-img" src="{{'assets/avatar' + post.author.id  + '.jpg'}}">
+    <div data-testid="avatar-username" class="title">{{post.author.username}}</div>
+    <div data-testid="avatar-timestamp" class="subtitle">{{post.timestamp | date: 'd \'de\' MMM, y'}}</div>
   </ui-avatar-card-info>
 </ng-container>

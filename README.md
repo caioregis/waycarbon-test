@@ -4,6 +4,8 @@ Esta prova consiste em desenvolver uma aplicação chamada Blogging utilizando A
 1. Página inicial da aplicação, que deve ser a reprodução deste [protótipo de alta fidelidade](https://www.figma.com/file/Zc4eaNKpuE2fLhL1cGzgLq/Prot%C3%B3tipo-para-o-teste-do-frontend?node-id=0%3A1)
 2. Criação livre de um modal que exiba informações sobre um usuário
 
+3. Para rodar o projeto (app + lib) use o comando `npm run start`;
+
 ##### 1. Reprodução do protótipo
 Para criação da primeira parte, utilize os dados disponíveis no arquivo **rawPost.ts**, que exporta uma lista de comentários; você deve criar um serviço que simule uma requisição a uma API e, ao receber a lista, organize a propriedade *comments* como uma **árvore**, e não como uma lista. O resultado deve ser utilizado para implementar a seção de comentários aninhados apresentada no protótipo visual.
 
@@ -45,4 +47,4 @@ Confira esta lista de tarefas para te ajudar a julgar se a prova está pronta pa
 - [x] Clicar no nome de um usuário abre modal com suas informações
 - [x] Workspace Angular multiprojetos com, no mínimo, aplicação e biblioteca
 - [x] A biblioteca possui ao menos 2 componentes, todos utilizados na aplicação
-- [ ] Os conjuntos de teste passam
+- [x] Os conjuntos de teste passam

@@ -28,6 +28,9 @@
       ],
       "data/*": [
         "src/data/*"
+      ],
+      "testing/*": [
+        "src/testing/*"
       ]
     },
     "lib": [

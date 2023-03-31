@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { map } from 'rxjs';
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -8,8 +7,7 @@ import { PostService } from '../../services/post.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostAuthorComponent {
-  author$ = this.postService.post$.pipe(map(p => p?.author));
-  timestamp$ = this.postService.post$.pipe(map(p => p?.timestamp));
+  post$ = this.postService.post$;
 
   constructor(private postService: PostService) {}
 }
