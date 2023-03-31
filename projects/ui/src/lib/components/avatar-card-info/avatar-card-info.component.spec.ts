@@ -31,7 +31,6 @@ describe('AvatarCardComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     debugElement = fixture.debugElement;
-    console.log(debugElement)
   });
 
   it('should create', () => {
