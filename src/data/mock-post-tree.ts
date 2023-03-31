@@ -49,6 +49,7 @@ export const postExpected = {
       content:
         'O empenho em analisar a consolidação das estruturas oferece uma interessante oportunidade para verificação do retorno esperado a longo prazo. Por outro lado, o julgamento imparcial das eventualidades facilita a criação dos modos de operação convencionais. O que temos que ter sempre em mente é que a revolução dos costumes estimula a padronização das novas proposições.',
       comments: [],
+      isTyping: false
     },
     {
       id: 2,

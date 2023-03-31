@@ -2,11 +2,11 @@
   <div class="comment">
     <div class="comment__line"></div>
     <div class="comment__body">
-      <div class="comment__body__username" (click)="showModalUserInfo(comment?.author?.id!)">
+      <div class="comment__body__username" data-testid="username-show-modal" (click)="showModalUserInfo(comment?.author?.id!)">
         {{comment.author.username || ''}} - {{comment.timestamp | date: 'd MMM y, \'às\' h\'h\'mm'}}
       </div>
-      <div class="comment__body__content">{{comment.content || ''}}</div>
-      <div class="comment__body__actions">
+      <div class="comment__body__content" data-testid="content">{{comment.content || ''}}</div>
+      <div class="comment__body__actions" data-testid="actions">
         <ng-container 
           *ngTemplateOutlet="comment.isTyping ? answerOpened : answerClosed;
           context: { $implicit: comment }">
@@ -22,16 +22,16 @@
 </ng-container>
 
 <ng-template #answerClosed let-comment>
-  <button class="secondary" (click)="like(comment.id)" [ngClass]="{'liked': !!comment.likes}">
+  <button class="secondary" data-testid="like" (click)="like(comment.id)" [ngClass]="{'liked': !!comment.likes}">
     Curtir {{comment.likes || ''}}
   </button>
-  <button class="primary" (click)="answerToggle(comment.id)">Responder</button>
+  <button class="primary" data-testid="answerToggle" (click)="answerToggle(comment.id)">Responder</button>
 </ng-template>
 
 <ng-template #answerOpened let-comment>
   <textarea rows="3" #textAreaInput></textarea>
-  <button class="secondary" (click)="cancel(comment.id)">Cancelar</button>
-  <button class="primary" (click)="confirm({ respondTo: comment.id, text: textAreaInput.value })">
+  <button class="secondary" data-testid="cancel" (click)="cancel(comment.id)">Cancelar</button>
+  <button class="primary" data-testid="confirm" (click)="confirm({ respondTo: comment.id, text: textAreaInput.value })">
     Publicar
   </button>
 </ng-template>

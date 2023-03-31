@@ -9,4 +9,5 @@ export const postServiceStub = {
   loadInitialData: () => {},
   saveComment: () => {},
   like: () => {},
+  answerComment: () => {}
 };
