@@ -1,10 +1,10 @@
 <div class="post-page" *ngIf="post$ | async as post; else loading">
-  <h1 class="post-page__title">{{post.title}}</h1>
-  <h2 class="post-page__subtitle">{{post.subtitle}}</h2>
+  <h1 class="post-page__title" data-testid="title">{{post.title}}</h1>
+  <h2 class="post-page__subtitle" data-testid="subtitle">{{post.subtitle}}</h2>
   <div class="post-page__author">
     <app-post-author></app-post-author>
   </div>
-  <div class="post-page__content" #content [innerHTML]="post.content | safeHtml">
+  <div class="post-page__content" #content [innerHTML]="post.content | safeHtml" data-testid="content">
   </div>
   <div class="post-page__comments">
     <h3 class="post-page__comments__title">Comentários</h3>
