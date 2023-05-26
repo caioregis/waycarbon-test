@@ -30,13 +30,13 @@
               "src/assets",
               {
                 "glob": "*",
-                "input":  "./node_modules/ui/src/assets",
+                "input":  "./dist/ui/src/assets",
                 "output": "assets"
               }
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/ui/src/styles/styles.scss"
+              "./dist/ui/src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -139,5 +139,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
